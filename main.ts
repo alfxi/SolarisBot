@@ -31,7 +31,6 @@ async function checkForNewTweets() {
 
     // Get the most recent tweet
     const latestTweet = timeline.data.data?.[0];
-    const includesMedia = timeline.includes?.media?.[0];
 
     if (!latestTweet) {
       console.log("No tweets found");
@@ -46,11 +45,6 @@ async function checkForNewTweets() {
       let messageContent = `**New Tweet from ${timeline.includes?.users?.[0]?.name}**\n`;
       messageContent += `${latestTweet.text}\n`;
       messageContent += `🔗 https://fxtwitter.com/i/status/${latestTweet.id}`;
-
-      // Add media URL if present
-      if (includesMedia?.url) {
-        messageContent += `\n\n${includesMedia.url}`;
-      }
 
       // Send to Discord
       await bot.helpers.sendMessage(Deno.env.get("DISCORD_CHANNEL_ID")!, {
