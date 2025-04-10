@@ -1,0 +1,6 @@
+{
+    "imports": {
+      "discordeno": "https://deno.land/x/discordeno@18.0.1/mod.ts",
+      "twitter": "https://esm.sh/twitter-api-v2@1.12.5"
+    }
+  }
